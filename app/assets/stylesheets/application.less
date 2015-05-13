@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *=require 'normalize.css'
+ *=require 'm_d_e.css'
+ *=require 'posts'
+ */
+
+@import 'more-responsive-ui.less';
+
+@_color-primary:    #b13535;
+@_color-secondary:  #539d9d;
+
+@color-header-background: @_color-primary;
+@color-header-text:       white;
+
+header.navbar {
+  @media(min-width: @media-hh){
+    width: 100vw;
+    left: 6vw;
+  }
+  @media(max-width: 4in){
+    display: none;
+  }
+  background: @color-header-text;
+  *{color:      @color-header-background;}
+}
+
+aside.navbar{
+  @media(max-width: 4in){
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: block;
+    position: relative;
+    .flaticon {
+      &:before{
+        font-size: 30vw;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .flaticon-arrow-up{ //hide "up" button
+      &:before { display: none;}
+    }
+  }
+  @media(min-width: @media-hh){
+    width: 6vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .flaticon {
+      &:before{
+        font-size: 3.5vw;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    nav {
+      height: 50%;
+    }
+  }
+}
+
+.content {
+  width: 66%;
+  margin-left: 10%;
+}

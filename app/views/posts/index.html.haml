@@ -1,0 +1,16 @@
+%h1 Newest posts
+- if @posts.any?
+  - @posts.each do |p|
+    %h2
+      = p.title
+      %small posted #{time_ago_in_words(p.created_at)} ago
+    %article#preview= p.content
+    %a.btn{ href: post_path(p) }
+      %span.flaticon.flaticon-eye
+      View
+- else
+  %h3 There are no posts yet.
+  %a.btn{ href: new_post_path }
+    %span.flaticon.flaticon-pen
+    Compose one
+

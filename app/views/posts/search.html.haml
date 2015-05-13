@@ -1,0 +1,15 @@
+%h1 Search results
+
+-if @posts.any?
+  - @posts.each do |p|
+    %h2= p.title
+    %article= p.content
+    %a.btn{ href: post_path(p) }
+      %span.flaticon.flaticon-eye
+        View
+-else
+  %h3 No posts found
+  %a.btn{ href: posts_path }
+    %span.flaticon.flaticon-eye
+    All posts
+

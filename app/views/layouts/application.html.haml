@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Caffeine Driven Devel
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %div.main
+      %header.navbar.hor
+        %a{href: '/'}
+          %h1 Caffeine driven devel
+      %aside.navbar
+        %nav.ver
+          %ul
+            %li
+              %a.flaticon.flaticon-coffee.logo{ href: '/'}
+            %li
+              %a.flaticon.flaticon-menu{ href: '/posts/'}
+            %li
+              %a.flaticon.flaticon-zoom{ name: 'search_toggle' }
+            %li
+              %a.flaticon.flaticon-arrow-up{ href: ''}
+      %div.content
+        = yield
+  %div#search_modal.modal
+    %div.modal-header
+      %span.flaticon.flaticon-cross.toggle
+    %div.modal-content
+      = render partial: 'shared/search'

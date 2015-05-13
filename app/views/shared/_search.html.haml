@@ -1,0 +1,9 @@
+%h3 Search for post
+
+%p 
+  %strong tip
+  Query should be part of post's title
+
+%form{ action: '/posts/search' }
+  %input{ type: 'text', name: 'query', placeholder: 'Query' }
+  %input.btn{ type: 'submit', value: 'Search' }
