@@ -1,0 +1,9 @@
+- @posts.each do |p|
+  %h2
+    = p.title
+    %small posted #{time_ago_in_words(p.created_at)} ago
+  %article.md-render{ 'data-source' => p.snippet}
+    %span.flaticon.flaticon-nodes
+  %a.btn{ href: post_path(p) }
+    %span.flaticon.flaticon-eye
+    View

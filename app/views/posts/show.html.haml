@@ -1,13 +1,18 @@
 %h1= @post.title
-- if signed_in?
-  %nav.hor
-    %ul
+%div.container
+  %ul.taglist
+    -@post.tag_list.each do |tag|
       %li
-        %a{ href: edit_post_path(@post) }
-          %span.flaticon.flaticon-pen
-          Edit
-      %li
-        %a{ href: post_path(@post), 'data-method': 'delete', 'data-confirm': 'Are you sure?' }
-          %span.flaticon.flaticon-cross
-          Delete
-%article#preview{ 'data-source' => @post.content }
+        %a.tag{ href: "/posts/search?tags=#{tag}" } #{tag}
+  - if signed_in?
+    %nav.hor
+      %ul
+        %li
+          %a{ href: edit_post_path(@post) }
+            %span.flaticon.flaticon-pen
+              Edit
+        %li
+          %a{ href: post_path(@post), 'data-method': 'delete', 'data-confirm': 'Are you sure?' }
+            %span.flaticon.flaticon-cross
+              Delete
+%article.md-render{ 'data-source' => @post.content }

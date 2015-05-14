@@ -1,5 +1,6 @@
 = simple_form_for @post do |f|
   = f.input :title, placeholder: 'Title'
   = f.input :content
+  = f.input :tag_list, placeholder: 'Tags, comma separated'
   = render 'm_d_e/editor'
   = f.submit class: 'btn'

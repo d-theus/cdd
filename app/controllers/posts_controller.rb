@@ -2,14 +2,25 @@ class PostsController < ApplicationController
   before_action :fetch_post,  only: [:edit, :show, :update, :destroy]
   before_action :create_post, only: [:new]
   before_action :authenticate, except: [:show, :index]
+  before_action :fetch_tags
 
   def index
     @posts = Post.all.order('created_at DESC')
   end
 
   def search
-    @posts = Post
-    .find_by_sql(['SELECT * FROM posts WHERE title LIKE ? ORDER BY created_at DESC', "%#{params[:query]}%"])
+    @posts = 
+      if params[:query]
+        Post.find_by_sql(['SELECT * FROM posts WHERE title LIKE ? ORDER BY created_at DESC', "%#{params[:query]}%"])
+      elsif params[:tags]
+        Post.tagged_with(params[:tags])
+      else
+        []
+      end
+  end
+
+  def search_form
+    render partial: 'shared/search'
   end
 
   def show
@@ -59,12 +70,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def fetch_tags
+    @tags = ActsAsTaggableOn::Tag.most_used
+  end
+
   def create_post
     @post = Post.new
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :tag_list)
   end
 
   def authenticate

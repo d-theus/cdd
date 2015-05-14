@@ -1,0 +1,8 @@
+-content_for :tags do
+  %h3.flaticon.flaticon-tag Tags
+
+  %nav.ver.nobg
+    %ul
+      - @tags.each do |t|
+        %li
+          %a= "#{t.name} : #{t.taggings_count}"

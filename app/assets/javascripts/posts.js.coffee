@@ -13,11 +13,17 @@ ready = ->
   modal = document.getElementById('search_modal')
   modal_toggle = document.querySelector('[name="search_toggle"]')
   modal_toggle.onclick = ->
-    modal.open()
+    req = $.ajax
+      url: '/posts/search_form'
+      beforeSend: ->
+        modal.loading()
+      success: (data) ->
+        modal.open(data)
 
-  if pre = document.getElementById('preview')
-    text = pre.dataset.source
-    $(pre).html(window.marked(text))
+  if previews = document.getElementsByClassName('md-render')
+    Array::forEach.call previews, (pre)->
+      text = pre.dataset.source
+      $(pre).html(window.marked(text))
 
 $(document).on 'page:load', ready
 $(document).ready ready
