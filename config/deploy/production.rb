@@ -60,7 +60,10 @@
 #     # password: 'please use keys'
 #   }
 #
-server 'nodebook',
+#server 'nodebook',
+  #user: 'web',
+  #roles: %w(web app db)
+
+server 'caffeinedrivendevel.su',
   user: 'web',
   roles: %w(web app db)
-
