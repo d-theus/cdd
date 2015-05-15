@@ -11,6 +11,10 @@
       %header.navbar.hor
         %a{href: '/'}
           %h1 Caffeine driven devel
+      - if alert
+        %p.alert= alert
+      - if notice
+        %p.notice= notice
       %aside.navbar
         %nav.ver.nobg
           %ul
