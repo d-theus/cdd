@@ -16,6 +16,12 @@ namespace :server do
       execute 'sudo /sbin/service nginx restart'
     end
   end
+
+  task :log do
+    on roles :app do
+      execute "cat #{current_path}/log/production.log"
+    end
+  end
 end
 
 after 'deploy:published', 'server:restart'
