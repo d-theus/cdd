@@ -5,6 +5,18 @@
 #= require 'm_d_e'
 marked = require('marked')
 
+langDictionary =
+  'javascript': 'JS'
+  'coffeescript': 'COFFEE'
+
+getLanguage = (codeTag)->
+  lang = null
+  rxp = /lang-(\w+)/
+  Array::forEach.call codeTag.classList, (cla)->
+    match = rxp.exec(cla)[1]
+    lang = match if match
+  langDictionary[lang] || lang
+
 ready = ->
 
   if ta = document.getElementById('post_content')
@@ -20,10 +32,26 @@ ready = ->
       success: (data) ->
         modal.open(data)
 
-  if previews = document.getElementsByClassName('md-render')
-    Array::forEach.call previews, (pre)->
-      text = pre.dataset.source
-      $(pre).html(window.marked(text))
+  if renders = document.getElementsByClassName('md-render')
+    Array::forEach.call renders, (render)->
+      text = render.dataset.source
+      $(render).html(window.marked(text))
+      pre = $(".md-render pre")
+      pre.each (i,e)->
+        $(this).prepend(
+          $("<div>")
+            .addClass('langspec')
+            .append(
+              $("<span>")
+                .addClass('flaticon')
+                .addClass('flaticon-gear')
+            )
+              .append(
+                $("<span>")
+                  .addClass("langname")
+                .html(getLanguage($(this).find('code').get(0)))
+              )
+      )
 
 $(document).on 'page:load', ready
 $(document).ready ready

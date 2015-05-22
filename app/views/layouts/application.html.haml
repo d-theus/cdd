@@ -17,16 +17,20 @@
       - if notice
         %p.notice= notice
       %aside.navbar
-        %nav.ver.nobg
+        %nav.ver
           %ul
             %li
-              %a.flaticon.flaticon-coffee.logo{ href: '/'}
+              %a{ href: '/'}
+                %span.flaticon.flaticon-coffee.logo
             %li
-              %a.flaticon.flaticon-menu{ href: '/posts/'}
+              %a{ href: '/posts/'}
+                %span.flaticon.flaticon-menu
             %li
-              %a.flaticon.flaticon-zoom{ name: 'search_toggle' }
+              %a{ name: 'search_toggle' }
+                %span.flaticon.flaticon-zoom
             %li
-              %a.flaticon.flaticon-arrow-up{ href: '#'}
+              %a{ href: '#'}
+                %span.flaticon.flaticon-arrow-up
       %div.content
         = yield
       -if content_for? :tags

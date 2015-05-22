@@ -1,9 +1,13 @@
-%h3 Search for post
+%div.container
+  %center.row
+    %h3.col-all-6.push-all-3 Search for post
 
-%p 
-  %strong tip
-  Query should be part of post's title
+  %center.row
+    %div.col-all-6.push-all-3
+      %strong tip
+      Query should be part of post's title
 
-%form{ action: '/posts/search' }
-  %input{ type: 'text', name: 'query', placeholder: 'Query' }
-  %input.btn{ type: 'submit', value: 'Search' }
+  %center.row
+    %form.col-all-6.push-all-3{ action: '/posts/search' }
+      %input{ type: 'text', name: 'query', placeholder: 'Query' }
+      %input.btn{ type: 'submit', value: 'Search' }

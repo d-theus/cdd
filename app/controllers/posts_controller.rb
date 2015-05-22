@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :fetch_post,  only: [:edit, :show, :update, :destroy]
   before_action :create_post, only: [:new]
-  before_action :authenticate, except: [:show, :index]
+  before_action :authenticate, except: [:show, :index, :search_form, :search]
   before_action :fetch_tags
 
   def index
