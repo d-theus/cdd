@@ -76,6 +76,9 @@ aside.navbar{
         font-size: 8vmin;
       }
     }
+    @media(orientation: landscape) and (max-height: @media-hh-max){
+      height: 120vh;
+    }
 
     nav {
       height: 50%;
@@ -84,7 +87,7 @@ aside.navbar{
 }
 
 aside#tags{
-  @media (min-width: @media-sm-min) and (max-width: @media-lg-max){
+  @media (min-width: @media-md-min) and (max-width: @media-lg-max){
     position: fixed;
     width: 15vw;
     right: 0;
@@ -92,7 +95,7 @@ aside#tags{
     margin: 0;
     padding: 1vw;
   }
-  @media (min-width: @media-hh-min) and (max-width: @media-hh-max){
+  @media (min-width: @media-hh-min) and (max-width: @media-sm-max){
     display: none;
   }
 
@@ -115,6 +118,11 @@ aside#tags{
 }
 
 .content {
-  width: 60%;
-  margin-left: 16%;
+  @media(min-width: @media-sm-min) and (max-width: @media-lg-max){
+    width: 60%;
+    margin-left: 16%;
+  }
+  @media(min-width: @media-hh-min) and (max-width: @media-hh-max){
+    width: 100%;
+  }
 }

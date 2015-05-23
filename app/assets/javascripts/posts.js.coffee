@@ -3,7 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #= require 'm_d_e'
-marked = require('marked')
+
+marked.setOptions(
+  highlight: (code)->
+    hljs.highlightAuto(code).value
+)
 
 langDictionary =
   'javascript': 'JS'
@@ -21,16 +25,8 @@ ready = ->
 
   if ta = document.getElementById('post_content')
     editor = new Editor('post_content')
-
-  modal = document.getElementById('search_modal')
-  modal_toggle = document.querySelector('[name="search_toggle"]')
-  modal_toggle.onclick = ->
-    req = $.ajax
-      url: '/posts/search_form'
-      beforeSend: ->
-        modal.loading()
-      success: (data) ->
-        modal.open(data)
+    editor.setTheme('solarized_light')
+    editor.setViMode()
 
   if renders = document.getElementsByClassName('md-render')
     Array::forEach.call renders, (render)->
@@ -38,6 +34,7 @@ ready = ->
       $(render).html(window.marked(text))
       pre = $(".md-render pre")
       pre.each (i,e)->
+        code = $(this).find('code').get(0)
         $(this).prepend(
           $("<div>")
             .addClass('langspec')
@@ -49,9 +46,9 @@ ready = ->
               .append(
                 $("<span>")
                   .addClass("langname")
-                .html(getLanguage($(this).find('code').get(0)))
+                .html(getLanguage(code))
               )
-      )
+        )
 
 $(document).on 'page:load', ready
 $(document).ready ready
