@@ -34,4 +34,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.log_level = :info
+  config.logger = ActFluentLoggerRails::Logger.new
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
+  #config.logger = ActFluentLoggerRails::Logger.new(
+    #log_tags: {
+      #ip: :ip,
+      #ua: :user_agent,
+      #uid: ->(request) { request.session[:uid] }
+    #}
+  #)
 end
