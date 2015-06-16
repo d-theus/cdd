@@ -31,17 +31,10 @@ ready = ->
 
   renders = document.getElementsByClassName('render')
   if (renders.length > 0)
-    window.AceVimtura =
-      Renderers:
-        Vendor: {}
-    requirejs.config({
-      baseUrl: '/assets/ace_vimtura'
-    })
-    require ['/assets/ace_vimtura/renderers/markdown.js'], ()->
-      window.Markdown = new window.AceVimtura.Renderers.Markdown
+    require ['/assets/marked.js'], (marked)->
       Array::forEach.call renders, (render)->
         text = render.dataset.source
-        $(render).html(Markdown.render text)
+        $(render).html(marked text)
         pre = $(".render pre")
         pre.each (i,e)->
           code = $(this).find('code').get(0)
