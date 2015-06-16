@@ -15,4 +15,4 @@
           %a.btn{ href: post_path(@post), 'data-method': 'delete', 'data-confirm': 'Are you sure?' }
             %span.flaticon.flaticon-cross
               Delete
-%article.md-render{ 'data-source' => @post.content }
+%article.render{ 'data-source' => @post.content, 'data-filetype' => 'haml' }

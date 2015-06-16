@@ -3,4 +3,5 @@
   = f.input :content
   = f.input :tag_list, placeholder: 'Tags, comma separated'
   = f.submit class: 'btn'
-  = render 'm_d_e/editor'
+  %div#editor 
+= javascript_include_tag '/assets/ace_vimtura/main'

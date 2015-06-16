@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require 'ace/ace'
 //= require 'more-responsive-less-ui'
 //= require_tree .

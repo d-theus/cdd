@@ -26,3 +26,7 @@ namespace :server do
     end
   end
 end
+
+before 'deploy:starting', 'server:stop'
+after 'deploy:finished', 'server:start'
+after 'deploy:finished', 'fluent:restart' 

@@ -3,9 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1' }
+    %meta{:name => 'keywords', :content => 'software, development, web, programming, administration, linux'}
+    %meta{:name => 'description', :content => 'Personal software engineering blog'}
     %title Caffeine Driven Devel
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag '/assets/ace_vimtura/lib/require'
+    = render file: 'layouts/_ga'
     = csrf_meta_tags
   %body
     %div.main
