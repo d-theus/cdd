@@ -15,6 +15,5 @@
 /log/*.log
 /tmp
 .rbenv-vars
-/public/assets/application-*
-/public/assets/.*
 *.swp
+/public/assets/*-*

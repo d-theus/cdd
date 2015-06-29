@@ -1,0 +1,8 @@
+paths:
+  mrlu: 'more-responsive-less-ui'
+modules:
+  - name: 'application'
+  - name: 'posts'
+  - name: 'form'
+  - name: 'renderer'
+  - name: 'mrlu'

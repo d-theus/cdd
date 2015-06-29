@@ -7,8 +7,7 @@
     %meta{:name => 'description', :content => 'Personal software engineering blog'}
     %title Caffeine Driven Devel
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag '/assets/ace_vimtura/lib/require'
+    = requirejs_include_tag 'application'
     = render file: 'layouts/_ga'
     = csrf_meta_tags
   %body
@@ -24,17 +23,29 @@
         %nav.ver
           %ul
             %li
-              %a{ href: '/'}
-                %span.flaticon.flaticon-coffee.logo
+              %a.container{ href: '/'}
+                .row
+                  .flaticon.flaticon-coffee.col-center.col-all-12
+                %small.row
+                  .col-center.col-all-12 about
             %li
-              %a{ href: '/posts/'}
-                %span.flaticon.flaticon-menu
+              %a.container{ href: '/posts/'}
+                .row
+                  .flaticon.flaticon-stack.col-center.col-all-12
+                %small.row
+                  .col-center.col-all-12 posts
             %li
-              %a{ 'data-modal' => 'search_modal', 'data-url' => '/posts/search_form' }
-                %span.flaticon.flaticon-zoom
+              %a.container{ 'data-modal' => 'search_modal', 'data-url' => '/posts/search_form' }
+                .row
+                  .flaticon.flaticon-zoom.col-center.col-all-12
+                %small.row
+                  .col-center.col-all-12 search
             %li
-              %a{ href: '#'}
-                %span.flaticon.flaticon-arrow-up
+              %a.container{ href: '#'}
+                .row
+                  .flaticon.flaticon-arrow-up.col-center.col-all-12
+                %small.row
+                  .col-center.col-all-12 go to top
       %div.content
         = yield
       -if content_for? :tags
