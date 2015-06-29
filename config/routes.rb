@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/posts/search_form', to: 'posts#search_form'
   resources :posts do
   end
-  root to: 'static_pages#about'
+  get '/about', to: 'static_pages#about'
+  root to: 'posts#index'
 end
