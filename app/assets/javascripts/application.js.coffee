@@ -3,4 +3,5 @@ require [
   'mrlu'
   'marked'
   'posts'
-], ($, marked)->
+], ($, mrlu, marked)->
+  window.$ = $

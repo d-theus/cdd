@@ -1,4 +1,4 @@
-define 'posts', [], ->
+define 'posts', ['jquery'], ($)->
   ready = ->
     if ta = document.getElementById('post_content')
       require ['form'], ->

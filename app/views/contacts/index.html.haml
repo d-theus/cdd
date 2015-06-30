@@ -1,0 +1,8 @@
+%h1 My contacts
+
+%nav.ver
+  %ul
+    - @contacts.each do |c|
+      %li
+        %a{ href: contact_path(c) }
+          = c.name
