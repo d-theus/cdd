@@ -7,11 +7,17 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(params.require(:contact).permit(:name, :email, :description))
-    if @contact.save
-      flash[:notice] = 'Okay, I will contact you'
-      redirect_to '/'
+    if verify_recaptcha(model: @contact, message: 'Invalid captha, please retry')
+      if @contact.save
+        flash[:notice] = 'Okay, I will contact you'
+        ContactMailer.contact_email(@contact).deliver
+        redirect_to '/'
+      else
+        flash[:alert] = 'Something went wrong'
+        render :new
+      end
     else
-      flash[:error] = 'Something went wrong'
+      flash[:alert] = 'Please verify you are not a robot'
       render :new
     end
   end
