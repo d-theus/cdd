@@ -1,10 +1,11 @@
 define(['lib/renderers/haml'], function(haml) {
-  return AceVimtura.Renderers.Haml = (function() {
+  var Haml;
+  return Haml = (function() {
     function Haml(options) {
       if (options == null) {
         options = {};
       }
-      return AceVimtura.Renderers.Vendor.Haml;
+      return haml;
     }
 
     return Haml;

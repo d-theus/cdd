@@ -1,7 +1,8 @@
 require [
   'jquery'
-  'mrlu'
   'marked'
   'posts'
-], ($, mrlu, marked)->
+], ($, marked, p)->
   window.$ = $
+  require ['more-responsive-less-ui'], ->
+    true

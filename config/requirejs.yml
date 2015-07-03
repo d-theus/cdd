@@ -1,8 +1,13 @@
-paths:
-  mrlu: 'more-responsive-less-ui'
+packages:
+  - name: ace
+    main: ace
+    location: 'lib/ace'
+  - name: ace/keyboard/vim
+    main: vim
+    location: 'lib/ace'
 modules:
-  - name: 'application'
-  - name: 'posts'
-  - name: 'form'
-  - name: 'renderer'
-  - name: 'mrlu'
+  - name: application
+  - name: posts
+  - name: form
+  - name: renderer
+  - name: more-responsive-less-ui

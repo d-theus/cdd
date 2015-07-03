@@ -9,7 +9,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    ace_vimtura-rails (0.1.3)
+    ace_vimtura-rails (0.1.4.pre.rc2)
     actionmailer (4.1.7)
       actionpack (= 4.1.7)
       actionview (= 4.1.7)
@@ -198,7 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ace_vimtura-rails (~> 0.1.3)
+  ace_vimtura-rails (~> 0.1.4.pre.rc2)
   acts-as-taggable-on (~> 3.4)
   acts_as_commentable
   capistrano
