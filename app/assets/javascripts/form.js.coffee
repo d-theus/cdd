@@ -11,6 +11,6 @@ define 'form', [
     ta = $('#post_content')
     av.loadText(ta.val())
     av.ace.on 'change', ()->
-      ta.value = av.ace.getValue()
+      ta.val(av.ace.getValue())
 
   window.AceVimtura = av
