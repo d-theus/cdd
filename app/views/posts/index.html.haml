@@ -7,3 +7,8 @@
     %span.flaticon.flaticon-pen
     Compose one
 - render partial: 'shared/tags'
+
+- content_for :title do
+  = raw "Latest posts"
+- content_for :meta_description do
+  = raw "List of posts, latest first."

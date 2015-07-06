@@ -16,3 +16,10 @@
             %span.flaticon.flaticon-cross
               Delete
 %article.render{ 'data-source' => @post.content, 'data-filetype' => 'haml' }
+
+- content_for :title do 
+  = raw @post.title
+- content_for :meta_description do
+  = raw @post.snippet
+- content_for :meta_keywords do
+  = raw @post.tag_list.join(',')

@@ -18,8 +18,3 @@ namespace :assets do
     end
   end
 end
-
-Rake::Task['deploy:assets:precompile'].clear_actions
-before 'assets:generators', 'assets:clobber'
-before 'deploy:compile_assets', 'assets:generators'
-

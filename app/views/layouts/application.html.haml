@@ -3,9 +3,9 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1' }
-    %meta{:name => 'keywords', :content => 'software, development, web, programming, administration, linux'}
-    %meta{:name => 'description', :content => 'Personal software engineering blog'}
-    %title Caffeine Driven Devel
+    = title_tag 
+    = meta_description
+    = meta_keywords
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application'
     = render file: 'layouts/_ga'
