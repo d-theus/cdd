@@ -19,5 +19,6 @@ set :rbenv_prefix, "RBENV_ROOT=/usr/share/rbenv PATH=$PATH:/usr/share/rbenv/shim
 set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 set :rbenv_roles, :all
 
+set :precompile_cmd, "echo 'Skipping asset compilation'"
 namespace :deploy do
 end

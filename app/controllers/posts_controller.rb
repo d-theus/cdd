@@ -29,6 +29,14 @@ class PostsController < ApplicationController
   def new
   end
 
+  def upload
+    respond_to do |f|
+      f.js do
+        @file = params[:file].read
+      end
+    end
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.save

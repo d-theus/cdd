@@ -3,4 +3,6 @@
   = f.input :content
   = f.input :tag_list, placeholder: 'Tags, comma separated'
   = f.submit class: 'btn'
-  %div#editor 
+= form_tag '/posts/upload', remote: true, id: 'upload', multipart: true, data: { type: :text} do |f|
+  = file_field_tag :file
+  = submit_tag 'Upload'

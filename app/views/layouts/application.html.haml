@@ -7,7 +7,7 @@
     %meta{:name => 'description', :content => 'Personal software engineering blog'}
     %title Caffeine Driven Devel
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = requirejs_include_tag 'application'
+    = javascript_include_tag 'application'
     = render file: 'layouts/_ga'
     = csrf_meta_tags
   %body
